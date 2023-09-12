@@ -949,6 +949,9 @@ export default class Calendar extends React.Component {
         </div>
       );
     }
+    if(this.props.locale === 'he' || this.props.locale === 'ar'){
+      return monthList.reverse()
+    }
     return monthList;
   };
 

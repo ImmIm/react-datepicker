@@ -1,6 +1,6 @@
 {
   "author": "HackerOne",
-  "name": "react-datepicker",
+  "name": "@lognet-wg/react-datepicker",
   "description": "A simple and reusable datepicker component for React",
   "version": "4.17.0",
   "license": "MIT",
@@ -107,6 +107,7 @@
     "@popperjs/core": "^2.11.8",
     "classnames": "^2.2.6",
     "date-fns": "^2.30.0",
+    "node": "^20.6.0",
     "prop-types": "^15.7.2",
     "react-onclickoutside": "^6.13.0",
     "react-popper": "^2.3.0"
@@ -121,8 +122,8 @@
     "test": "NODE_ENV=test jest",
     "test:ci": "NODE_ENV=test jest --ci --coverage",
     "test:watch": "NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=test jest --watch",
-    "build": "NODE_ENV=production yarn run build:js && NODE_ENV=production yarn run css:prod && NODE_ENV=production yarn run css:modules:dev && NODE_ENV=production yarn run css:dev && NODE_ENV=production yarn run css:modules:dev",
-    "build-dev": "NODE_ENV=development yarn run js:dev && NODE_ENV=development yarn run css:dev && NODE_ENV=development yarn run css:modules:dev",
+    "build": "set NODE_ENV=production yarn run build:js && set NODE_ENV=production yarn run css:prod && set NODE_ENV=production yarn run css:modules:dev && set NODE_ENV=production yarn run css:dev && set NODE_ENV=production yarn run css:modules:dev",
+    "build-dev": "set NODE_ENV=development yarn run js:dev && set NODE_ENV=development yarn run css:dev && set NODE_ENV=development yarn run css:modules:dev",
     "css:prod": "sass --style compressed src/stylesheets/datepicker.scss > dist/react-datepicker.min.css",
     "css:modules:prod": "sass --style compressed src/stylesheets/datepicker-cssmodules.scss | tee dist/react-datepicker-cssmodules.min.css dist/react-datepicker-min.module.css",
     "css:dev": "sass --style expanded src/stylesheets/datepicker.scss > dist/react-datepicker.css",

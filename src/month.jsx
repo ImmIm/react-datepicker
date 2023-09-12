@@ -418,17 +418,34 @@ export default class Month extends React.Component {
           setPreSelection(selected);
           break;
         case "ArrowRight":
-          this.handleMonthNavigation(
-            month === 11 ? 0 : month + MONTH_NAVIGATION_HORIZONTAL_OFFSET,
-            utils.addMonths(preSelection, MONTH_NAVIGATION_HORIZONTAL_OFFSET),
-          );
-          break;
+          if(this.props.locale === 'he' || this.props.locale === 'ar'){
+            this.handleMonthNavigation(
+                month === 0 ? 11 : month - MONTH_NAVIGATION_HORIZONTAL_OFFSET,
+                utils.subMonths(preSelection, MONTH_NAVIGATION_HORIZONTAL_OFFSET),
+            );
+            break;
+          }else{
+            this.handleMonthNavigation(
+                month === 11 ? 0 : month + MONTH_NAVIGATION_HORIZONTAL_OFFSET,
+                utils.addMonths(preSelection, MONTH_NAVIGATION_HORIZONTAL_OFFSET),
+            );
+            break;
+          }
         case "ArrowLeft":
-          this.handleMonthNavigation(
-            month === 0 ? 11 : month - MONTH_NAVIGATION_HORIZONTAL_OFFSET,
-            utils.subMonths(preSelection, MONTH_NAVIGATION_HORIZONTAL_OFFSET),
-          );
-          break;
+          if(this.props.locale === 'he' || this.props.locale === 'ar'){
+            this.handleMonthNavigation(
+                month === 11 ? 0 : month + MONTH_NAVIGATION_HORIZONTAL_OFFSET,
+                utils.addMonths(preSelection, MONTH_NAVIGATION_HORIZONTAL_OFFSET),
+            );
+            break;
+          }else{
+            this.handleMonthNavigation(
+                month === 0 ? 11 : month - MONTH_NAVIGATION_HORIZONTAL_OFFSET,
+                utils.subMonths(preSelection, MONTH_NAVIGATION_HORIZONTAL_OFFSET),
+            );
+            break;
+          }
+
         case "ArrowUp":
           this.handleMonthNavigation(
             // Check if month on the first row
@@ -480,17 +497,35 @@ export default class Month extends React.Component {
           this.props.setPreSelection(this.props.selected);
           break;
         case "ArrowRight":
-          this.handleQuarterNavigation(
-            quarter === 4 ? 1 : quarter + 1,
-            utils.addQuarters(this.props.preSelection, 1),
-          );
-          break;
+          if(this.props.locale === 'he' || this.props.locale === 'ar'){
+            this.handleQuarterNavigation(
+                quarter === 1 ? 4 : quarter - 1,
+                utils.subQuarters(this.props.preSelection, 1),
+            );
+            break;
+          }else{
+            this.handleQuarterNavigation(
+                quarter === 4 ? 1 : quarter + 1,
+                utils.addQuarters(this.props.preSelection, 1),
+            );
+            break;
+          }
+
         case "ArrowLeft":
-          this.handleQuarterNavigation(
-            quarter === 1 ? 4 : quarter - 1,
-            utils.subQuarters(this.props.preSelection, 1),
-          );
-          break;
+          if(this.props.locale === 'he' || this.props.locale === 'ar'){
+            this.handleQuarterNavigation(
+                quarter === 4 ? 1 : quarter + 1,
+                utils.addQuarters(this.props.preSelection, 1),
+            );
+            break;
+          }else{
+            this.handleQuarterNavigation(
+                quarter === 1 ? 4 : quarter - 1,
+                utils.subQuarters(this.props.preSelection, 1),
+            );
+            break;
+          }
+
       }
     }
   };

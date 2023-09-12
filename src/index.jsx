@@ -814,11 +814,29 @@ export default class DatePicker extends React.Component {
       let newSelection;
       switch (eventKey) {
         case "ArrowLeft":
-          newSelection = subDays(copy, 1);
-          break;
+          if(!this.props.locale){
+            newSelection = subDays(copy, 1);
+            break;
+          }
+          if(this.props.locale === 'he' || this.props.locale === 'ar'){
+            newSelection = addDays(copy, 1);
+            break;
+          }else{
+            newSelection = subDays(copy, 1);
+            break;
+          }
         case "ArrowRight":
-          newSelection = addDays(copy, 1);
-          break;
+          if(!this.props.locale){
+            newSelection = addDays(copy, 1);
+            break;
+          }
+          if(this.props.locale === 'he' || this.props.locale === 'ar'){
+            newSelection = subDays(copy, 1);
+            break;
+          }else{
+            newSelection = addDays(copy, 1);
+            break;
+          }
         case "ArrowUp":
           newSelection = subWeeks(copy, 1);
           break;
